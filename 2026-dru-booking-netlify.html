@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dru Craig — Tattoo Appointment Request</title>
+  <style>
+    :root {
+      --bg: #f5f3ee;
+      --card: #fdfbf9;
+      --muted: #6b625a;
+      --fg: #1c1b1a;
+      --accent: #bfa980;
+      --accent-2: #a89476;
+      --danger: #b94a48;
+      --border: #d8d3cc;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--fg); }
+    header { padding: 28px 18px 8px; text-align: center; }
+    h1 { font-weight: 700; letter-spacing: 0.5px; margin: 0 0 6px 0; }
+    .subtitle { color: var(--muted); font-size: 0.98rem; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 16px; }
+    form { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    fieldset { border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 0 0 18px; }
+    legend { padding: 0 8px; color: var(--accent-2); font-weight: 600; letter-spacing: 0.3px; }
+    label { display: block; font-size: 0.95rem; margin: 14px 0 6px; }
+    input, textarea, select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 10px; }
+    textarea { min-height: 120px; resize: vertical; }
+    .row { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 720px) { .row.two { grid-template-columns: 1fr 1fr; } }
+    .help { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+    button { border: none; padding: 12px 18px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; }
+    .pill { display: inline-block; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); background: #f0ece6; }
+    .req { color: var(--danger); margin-left: 4px; }
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 22px 12px 42px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dru Craig — Tattoo Appointment Request</h1>
+  <div class="subtitle">Share your ideas and all pertinent information below and I will get back to you soon.</div>
+</header>
+
+<div class="wrap">
+  <form name="dru-booking"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="website"
+        enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="dru-booking" />
+    <input type="text" name="website" style="display:none" />
+
+    <fieldset>
+      <legend>Contact</legend>
+      <div class="row two">
+        <div><label>Full Name<span class="req">*</span></label><input type="text" name="name" required></div>
+        <div><label>Email<span class="req">*</span></label><input type="email" name="email" required></div>
+      </div>
+      <div class="row two">
+        <div><label>Phone<span class="req">*</span></label><input type="tel" name="phone" required></div>
+        <div><label>Instagram (optional)</label><input type="text" name="instagram"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your Idea</legend>
+      <label>Placement on body<span class="req">*</span></label>
+      <input type="text" name="placement" required>
+
+      <div class="row two">
+        <div><label>Approx. width (inches)<span class="req">*</span></label><input type="number" name="width" min="1" step="0.5" required></div>
+        <div><label>Approx. height (inches)<span class="req">*</span></label><input type="number" name="height" min="1" step="0.5" required></div>
+      </div>
+
+      <label>Concept description<span class="req">*</span></label>
+      <textarea name="concept" required></textarea>
+
+      <div class="help">
+        If you are wanting a coverup or working close to existing tattoos, please include a clear, well-lit photo straight-on of the existing tattoos.
+      </div>
+
+      <label>Reference image upload (optional)</label>
+      <input type="file" name="upload" accept="image/*">
+      <div class="help">You can upload one image here. If you have multiple references, email them after submitting.</div>
+      <div class="help">
+        Reference images can be emailed to <strong>Dru.craig@gmail.com</strong> after submitting this form.
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Logistics</legend>
+      <div class="row two">
+        <div><label>Anticipated Budget (USD)<span class="req">*</span></label><input type="number" name="budget" min="100" step="50" required></div>
+        <div>
+          <label>Timeline</label>
+          <select name="timeline">
+            <option value="">Select</option>
+            <option>Flexible</option>
+            <option>Soon (next 4–8 weeks)</option>
+            <option>Specific date</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Your availability</label>
+      <input type="text" name="availability">
+
+      <label>Anything else I should know?</label>
+      <textarea name="notes"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Consent</legend>
+      <label><input type="checkbox" name="consent" required> You may contact me via email or text regarding this request.</label>
+    </fieldset>
+
+    <div class="actions">
+      <button type="submit">Submit request</button>
+      <span class="pill">Dru Craig • Boise, ID</span>
+    </div>
+  </form>
+</div>
+
+<footer>
+  © <span id="year"></span> Dru Craig • 208-477-7750
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
